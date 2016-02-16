@@ -6,3 +6,22 @@
 // 3. Connect the validation object to an event handler tied to the submit button.
 
 // Refer to the `index.html` file for the validation rules that must be enforced.
+
+$(document).ready(function() {
+
+$('.btn-success').click(function(e) {
+  e.preventDefault();
+  $('#order-form').validate({
+
+    submitHandler: function(form) {
+      form.submit
+    }
+
+  });
+})
+
+
+
+
+
+});
