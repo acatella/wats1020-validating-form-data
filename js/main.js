@@ -9,18 +9,42 @@
 
 $(document).ready(function() {
 
-$('.btn-success').click(function(e) {
-  e.preventDefault();
   $('#order-form').validate({
+    rules: {
+      "your-name": {
+        minlength: 2,
+        maxlenght: 128,
+        // hasNumbers: "hasNumbers"
+      }
+    },
 
-    submitHandler: function(form) {
-      form.submit
+    messages: {
+      "your-name": {
+        minlength: "Your name must be at least 2 characters.",
+        maxlength: "Your name cannot be longer that 128 characters."
+      }
+
     }
 
   });
-})
 
+  //adds required attribute inputs
+  $('div[class="form-group required"]').each(function(i) {
+    $(this).find('input').rules('add','required');
+  });
 
+  //method to test if name contains numbers
+  // jQuery.validator.addMethod("hasNumbers", function(value, element) {
+  //   var regexp = /[0-9]/;
+  //   if (regexp.test(value)) {
+  //     return false
+  //   }
+  //
+  //   else {
+  //     return true
+  //   }
+  //
+  // }, "Your name cannot contain numbers.");
 
 
 
