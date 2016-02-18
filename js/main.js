@@ -7,31 +7,32 @@
 
 // Refer to the `index.html` file for the validation rules that must be enforced.
 
-$(document).ready(function() {
+$(document).on('ready', function() {
 
   $('#order-form').validate({
-    rules: {
-      "your-name": {
-        minlength: 2,
-        maxlenght: 128,
-        // hasNumbers: "hasNumbers"
-      }
+
+    submitHandler: function(form) {
+      form.submit();
     },
 
-    messages: {
+    rules: {
+
       "your-name": {
-        minlength: "Your name must be at least 2 characters.",
-        maxlength: "Your name cannot be longer that 128 characters."
+        required: true,
+        minlength: 2,
+        maxlength: 128
       }
 
     }
 
   });
 
-  //adds required attribute inputs
-  $('div[class="form-group required"]').each(function(i) {
-    $(this).find('input').rules('add','required');
-  });
+});
+
+  // adds required attribute inputs
+  // $('div[class="form-group required"]').each(function(i) {
+  //   $(this).find('input').rules('add','required');
+  // });
 
   //method to test if name contains numbers
   // jQuery.validator.addMethod("hasNumbers", function(value, element) {
@@ -45,7 +46,3 @@ $(document).ready(function() {
   //   }
   //
   // }, "Your name cannot contain numbers.");
-
-
-
-});

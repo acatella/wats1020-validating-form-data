@@ -10,6 +10,7 @@ $(document).on('ready', function(){
         rules: {
             "your-name": {
                 required: true,
+                minlength: 2,
                 maxlength: 128
             },
             "your-state": {
